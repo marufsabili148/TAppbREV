@@ -1,0 +1,95 @@
+{
+  "name": "LombaKu - Info Jadwal Lomba & Kompetisi",
+  "short_name": "LombaKu",
+  "description": "Platform informasi jadwal lomba dan kompetisi terlengkap di Indonesia. Temukan hackathon, business case, olimpiade sains, dan berbagai kompetisi lainnya.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0a0a0a",
+  "background_color": "#ffffff",
+  "categories": ["productivity", "utilities"],
+  "shortcuts": [
+    {
+      "name": "Cari Lomba",
+      "short_name": "Cari",
+      "description": "Cari lomba yang kamu inginkan",
+      "url": "/search",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Tambah Lomba",
+      "short_name": "Tambah",
+      "description": "Tambahkan info lomba baru",
+      "url": "/add",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    },
+    {
+      "name": "Profil",
+      "short_name": "Profil",
+      "description": "Lihat profil dan lomba Anda",
+      "url": "/profile",
+      "icons": [
+        {
+          "src": "/icon-192.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "form_factor": "wide"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "prefer_related_applications": false,
+  "related_applications": []
+}

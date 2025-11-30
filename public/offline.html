@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Offline - LombaKu</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+                'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .offline-container {
+            text-align: center;
+            max-width: 500px;
+        }
+
+        .offline-icon {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 30px;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #a0a0a0;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .offline-features {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 30px;
+            text-align: left;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+            font-size: 14px;
+            color: #d0d0d0;
+        }
+
+        .feature-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            margin-right: 12px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4ade80;
+        }
+
+        .feature-icon::before {
+            content: '✓';
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .feature-item.coming::before {
+            content: '○';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #64748b;
+            margin-right: 8px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 12px;
+            flex-direction: column;
+            margin-top: 24px;
+        }
+
+        button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.1);
+            color: #e0e0e0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .status-indicator {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 30px;
+            padding: 12px 16px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 8px;
+            font-size: 14px;
+            color: #fca5a5;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #ef4444;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+            color: #ffffff;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            .offline-container {
+                padding: 20px;
+            }
+
+            .button-group {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="offline-container">
+        <div class="logo-text">🏆 LombaKu</div>
+        
+        <svg class="offline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z" fill="currentColor" opacity="0.1"/>
+            <line x1="1" y1="1" x2="23" y2="23" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+
+        <h1>Offline Mode</h1>
+        <p class="subtitle">
+            Koneksi internet Anda tidak tersedia. LombaKu masih dapat diakses dengan data yang sudah di-cache!
+        </p>
+
+        <div class="offline-features">
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <div>Lihat lomba yang sudah dimuat sebelumnya</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <div>Akses profil dan kompetisi tersimpan</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <div>Navigasi antara halaman yang sudah dibuka</div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"></div>
+                <div>Data tersinkronisasi saat kembali online</div>
+            </div>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" onclick="location.reload()">
+                <span>🔄</span> Coba Muat Ulang
+            </button>
+            <button class="btn-secondary" onclick="goToHome()">
+                <span>🏠</span> Kembali ke Beranda
+            </button>
+        </div>
+
+        <div class="status-indicator">
+            <span class="status-dot"></span>
+            <span id="status-text">Menunggu koneksi internet...</span>
+        </div>
+    </div>
+
+    <script>
+        // Update status when connection is restored
+        function updateOnlineStatus() {
+            const statusText = document.getElementById('status-text');
+            if (navigator.onLine) {
+                statusText.textContent = 'Koneksi dipulihkan! Menyegarkan halaman...';
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                statusText.textContent = 'Menunggu koneksi internet...';
+            }
+        }
+
+        // Listen for online/offline events
+        window.addEventListener('online', updateOnlineStatus);
+        window.addEventListener('offline', updateOnlineStatus);
+
+        // Navigate to home page
+        function goToHome() {
+            // Try to go to home, fallback to index
+            window.location.href = '/';
+        }
+
+        // Check if we're online when page loads
+        if (navigator.onLine) {
+            updateOnlineStatus();
+        }
+
+        // Log offline page load
+        console.log('[Offline Page] User is offline, showing offline fallback');
+    </script>
+</body>
+</html>

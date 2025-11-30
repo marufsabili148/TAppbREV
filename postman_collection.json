@@ -1,0 +1,88 @@
+{
+  "info": {
+    "_postman_id": "notification-api-collection",
+    "name": "LombaKu Notification API",
+    "description": "Complete collection for testing Notification APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Check Notification Subscription",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/api/notifications/check?userId={{userId}}",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notifications", "check"],
+          "query": [
+            {
+              "key": "userId",
+              "value": "{{userId}}"
+            }
+          ]
+        },
+        "description": "Check if user has an active notification subscription"
+      },
+      "response": []
+    },
+    {
+      "name": "Save Notification Subscription",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"subscription\": {\n    \"endpoint\": \"https://fcm.googleapis.com/fcm/send/example-token\",\n    \"keys\": {\n      \"p256dh\": \"BElmrgVYm_15zXsbXB0W8bh3Eo3J_23OW5iKn7FzD90pV3FYJb8CZiH7xRUstR12tFMrCjL-FjuoYvLxW1vHBik\",\n      \"auth\": \"TvmzBRWCvXMeE_LPO-PN6Q\"\n    }\n  }\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/notifications/subscribe",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notifications", "subscribe"]
+        },
+        "description": "Save a new push notification subscription for a user"
+      },
+      "response": []
+    },
+    {
+      "name": "Send Notification",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"userId\": \"{{userId}}\",\n  \"title\": \"Test Notification\",\n  \"message\": \"Ini adalah notifikasi test dari Postman\",\n  \"data\": {\n    \"type\": \"test\",\n    \"url\": \"/competitions/123\",\n    \"category\": \"competition\"\n  }\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/api/notifications/send",
+          "host": ["{{baseUrl}}"],
+          "path": ["api", "notifications", "send"]
+        },
+        "description": "Send a push notification to a specific user"
+      },
+      "response": []
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:3000",
+      "type": "string"
+    },
+    {
+      "key": "userId",
+      "value": "user-123",
+      "type": "string"
+    }
+  ]
+}
